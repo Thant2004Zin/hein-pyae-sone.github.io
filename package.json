@@ -1,0 +1,29 @@
+{
+  "name": "my-pfl",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "exports-loader": "^4.0.0",
+    "vite": "^3.0.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.1.1",
+    "@popperjs/core": "^2.11.5",
+    "animate.css": "^4.1.1",
+    "atropos": "^1.0.2",
+    "bootstrap": "^5.2.0",
+    "fullpage.js": "^4.0.9",
+    "imagehover.css": "^2.0.0",
+    "sass": "^1.54.0",
+    "typed.js": "^2.0.12",
+    "venobox": "^2.0.4",
+    "waypoints": "^4.0.1",
+    "wow.js": "^1.2.2"
+  }
+}
