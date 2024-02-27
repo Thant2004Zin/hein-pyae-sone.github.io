@@ -302,6 +302,10 @@ transform: rotateZ(-10deg);
   background-color: rgba(255, 255, 255, 0.38);
   backdrop-filter: blur(20px);
   transition: 0.3s;
+
+  &:hover{
+    margin-top: -15px;
+  }
 }
 .section-4-cardBG-for-mobile{
   background-color: rgba(255, 255, 255, 0.38);
@@ -312,9 +316,6 @@ transform: rotateZ(-10deg);
   background-color: rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(30px);
   color: cyan;
-}
-.section-4-cardBG:hover{
-margin-bottom: 30px;
 }
 //section-5
 .five-section{
@@ -777,7 +778,3 @@ margin-bottom: 30px;
   bottom: 25px;
   right: 15px;
 }
-
-//mobile btn-test
-
-//mobile btn-test-end
