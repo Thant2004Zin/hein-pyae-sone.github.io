@@ -67,43 +67,44 @@
       <i class="fa-brands fa-facebook-messenger fa-fw icon-item"></i>
     </a>
   </div>
+
   <div class="whole-container d-inline-block d-lg-none" style="z-index: 20">
-  <div class="position-relative">
-    <div class="icon-bg-container" id="icon-container" style="z-index: 2020;">
-      <i class="fa-solid fa-share-nodes visible-icon-color"></i>
+
+    <div class="position-relative">
+      <div class="icon-bg-container" id="icon-container" style="z-index: 2020;">
+        <i class="fa-solid fa-share-nodes visible-icon-color"></i>
+      </div>
+
+      <div class="small-icon-container" style="z-index: -1">
+        <a href="https://www.facebook.com/hein.pyae.sone56829/" class="position-absolute" id="fbIcon">
+          <i class="fa-brands fa-facebook fa-fw"></i>
+        </a>
+        <a href="https://www.instagram.com/Hein%20Pyae%20Sone/?fbclid=IwAR0l2odJJ1jBXJDWT5d50XBELsZi0UyItSfbKJ8L9O6_DMxnfgEO0d9aX88" class="position-absolute" id="igIcon">
+          <i class="fa-brands fa-instagram fa-fw"></i>
+        </a>
+        <a href="https://github.com/Thant2004Zin" class="position-absolute" id="ghIcon">
+          <i class="fa-brands fa-github fa-fw"></i>
+        </a>
+        <a href="https://www.facebook.com/messages/t/100022560511547" class="position-absolute" id="msIcon">
+          <i class="fa-brands fa-facebook-messenger fa-fw"></i>
+        </a>
+      </div>
     </div>
-
-    <div class="small-icon-container" style="z-index: -1">
-      <a href="https://www.facebook.com/hein.pyae.sone56829/" class="position-absolute" id="fbIcon">
-        <i class="fa-brands fa-facebook fa-fw"></i>
-      </a>
-      <a href="https://www.instagram.com/Hein%20Pyae%20Sone/?fbclid=IwAR0l2odJJ1jBXJDWT5d50XBELsZi0UyItSfbKJ8L9O6_DMxnfgEO0d9aX88" class="position-absolute" id="igIcon">
-        <i class="fa-brands fa-instagram fa-fw"></i>
-      </a>
-      <a href="https://github.com/Thant2004Zin" class="position-absolute" id="ghIcon">
-        <i class="fa-brands fa-github fa-fw"></i>
-      </a>
-      <a href="https://www.facebook.com/messages/t/100022560511547" class="position-absolute" id="msIcon">
-        <i class="fa-brands fa-facebook-messenger fa-fw"></i>
-      </a>
-    </div>
-
-
 
   </div>
-
-</div>
 
 <div id="fullpage">
 
     <section class="hero-section section" id="section1">
-
-      <div class="profile-circle-1 d-none d-md-inline-block d-lg-inline-block"></div>
-      <div class="profile-circle-2 "></div>
-      <div class="profile-circle-3 d-none d-lg-inline-block"></div>
-      <div class="d-inline-block d-md-none profile-circle-for-mobile"></div>
+      
+      <ul class="circles">
+        <div class="profile-circle-1 d-none d-md-inline-block d-lg-inline-block"></div>
+        <div class="profile-circle-2 "></div>
+        <div class="profile-circle-3 d-none d-lg-inline-block"></div>
+        <div class="d-inline-block d-md-none profile-circle-for-mobile"></div>
+      </ul>
+      
       <div class="container vh-100 position-relative">
-
         <p class="welcome90 d-inline fw-bold">Welcome</p>
 
         <div class="row h-100 align-items-center flex-lg-row flex-column justify-content-lg-center justify-content-evenly">
@@ -132,40 +133,42 @@
 
     <section class="about-section position-relative section" id="section2">
 
-      <div class="about-circle-1 d-none d-lg-inline-block"></div>
-      <div class="about-circle-2 d-none d-lg-inline-block"></div>
-      <div class="about-circle-3-container overflow-hidden position-absolute">
-        <div class="about-circle-3"></div>
-      </div>
+      <ul class="circles">
+        <div class="about-circle-1 d-none d-lg-inline-block"></div>
+        <div class="about-circle-2 d-none d-lg-inline-block"></div>
+        <div class="about-circle-3-container overflow-hidden position-absolute">
+          <div class="about-circle-3"></div>
+        </div>
+      </ul>
+      
 
       <div class="container position-relative vh-100">
 
         <p class="d-flex d-lg-none position-absolute About-for-mobile ">About Me</p>
-
         <p class="About90 d-none d-md-inline fw-bold">About Me</p>
 
         <div class="row h-100 align-items-center flex-lg-row flex-column justify-content-lg-center justify-content-center">
 
-        <div class="col-lg-5 p-lg-0 px-4" id="section2-18">
-          <!-- main Atropos container (required), add your custom class here -->
-          <div class="atropos my-atropos">
-            <!-- scale container (required) -->
-            <div class="atropos-scale">
-              <!-- rotate container (required) -->
-              <div class="atropos-rotate">
-                <!-- inner container (required) -->
-                <div class="atropos-inner border-30">
-                  <!-- put your custom content here -->
+          <div class="col-lg-5 p-lg-0 px-4" id="section2-18">
+            <!-- main Atropos container (required), add your custom class here -->
+            <div class="atropos my-atropos">
+              <!-- scale container (required) -->
+              <div class="atropos-scale">
+                <!-- rotate container (required) -->
+                <div class="atropos-rotate">
+                  <!-- inner container (required) -->
+                  <div class="atropos-inner border-30">
+                    <!-- put your custom content here -->
 
-                  <div class="d-flex justify-content-center align-items-center position-relative BG-about">
-                    <p class="year-old text-black-50">Years Old</p>
-                    <p class="word">18</p>
+                    <div class="d-flex justify-content-center align-items-center position-relative BG-about">
+                      <p class="year-old text-black-50">Years Old</p>
+                      <p class="word" id="age"></p>
+                    </div>
+
                   </div>
-
                 </div>
               </div>
             </div>
-          </div>
         </div>
 
           <div class="col-lg-6">
@@ -198,14 +201,13 @@
 
       <div class="w-100 min-vh-100 upper-layer d-none d-lg-inline-block d-xxl-inline-block position-absolute" style="z-index: 1"></div>
 
-            <div class="vh-100 w-100 position-absolute overflow-hidden">
-              <span class="cursor d-none d-lg-inline-block d-xxl-inline-block" id="cursor"></span>
-            </div>
-
-
-      <div class="vh-100 w-100 position-absolute overflow-hidden d-none d-lg-inline-block  d-xxl-inline-block">
-        <img src="./img/Untitled-2.png" class="img-fluid w-100" alt="">
+      <div class="vh-100 w-100 position-absolute overflow-hidden">
+        <span class="cursor d-none d-lg-inline-block d-xxl-inline-block" id="cursor"></span>
       </div>
+      <div class="vh-100 w-100 position-absolute overflow-hidden d-none d-lg-inline-block  d-xxl-inline-block">
+        <img src="./img/Untitled-2.png" class="img-fluid w-100 vh-100" alt="">
+      </div>
+
 
         <div class="container-fluid position-relative h-100" style="z-index: 2;">
 
@@ -226,7 +228,6 @@
           <div style="height: 80%" class="d-inline-block d-lg-flex justify-content-center align-items-center">
 
             <div class="col-lg-5">
-
               <div class="row justify-content-center mt-4">
                 <div class="col-lg-5 col-10 col-xxl-5 mx-3 my-project-img">
                   <a class="venobox" href="./img/section-3Vbox-1.png">
@@ -262,7 +263,7 @@
                   Developed many projects
                 </p>
                 <h1 class="display-4 fw-bold" style="color: cyan">
-                  2019-2022
+                  2019 - NOW
                 </h1>
                 <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad cum cupiditate delectus, deleniti distinctio hic maiores nemo nobis perspiciatis quis sunt voluptas. Aliquam aliquid at beatae distinctio expedita sed!</p>
 
@@ -281,7 +282,7 @@
 
       <div class="w-100 min-vh-100 upper-layer d-none d-lg-inline-block d-xxl-inline-block position-absolute" style="z-index: 1"></div>
       <div class="vh-100 w-100 position-absolute overflow-hidden d-none d-lg-inline-block  d-xxl-inline-block">
-        <img src="./img/section-4-Bg.png" class="img-fluid w-100" alt="">
+        <img src="./img/section-4-Bg.png" class="img-fluid w-100 vh-100" alt="">
       </div>
 
       <div class="vh-100 w-100 position-absolute justify-content-center align-items-center d-lg-flex d-none">
@@ -300,11 +301,9 @@
 
         <div class="row justify-content-center flex-lg-row flex-column">
 
-          <div class="col-lg-4">
+          <div class="col-lg-4 card-container">
             <div class="card section-4-cardBG">
-              <div class="w-100 d-flex justify-content-center my-lg-4 my-2">
-                <i class="fa-regular fa-fw fa-calendar-check text-center section-4-icon"></i>
-              </div>
+                <i class="fa-regular fa-fw fa-calendar-check mx-auto my-4 section-4-icon"></i>
               <div class="card-body mb-2 mb-xxl-4 text-center pt-0">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text mb-4">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -312,11 +311,9 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-4 my-3 my-lg-0">
+          <div class="col-lg-4 card-container my-3 my-lg-0">
             <div class="card section-4-cardBG">
-              <div class="w-100 d-flex justify-content-center my-lg-4 my-2">
-                <i class="fa-solid fa-fw fa-code text-center section-4-icon"></i>
-              </div>
+                <i class="fa-solid fa-fw fa-code mx-auto my-4 section-4-icon"></i>
               <div class="card-body mb-2 mb-xxl-4 pt-0 text-center">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text mb-4">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -324,11 +321,9 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-4">
+          <div class="col-lg-4 card-container">
             <div class="card section-4-cardBG">
-              <div class="w-100 d-flex justify-content-center my-lg-4 my-2">
-                <i class="fa-solid fa-gears text-center fa-fw section-4-icon"></i>
-              </div>
+                <i class="fa-solid fa-gears mx-auto my-4 fa-fw section-4-icon"></i>
               <div class="card-body mb-2 mb-xxl-4 text-center pt-0">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text mb-4">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -353,7 +348,7 @@
     <div class="w-100 min-vh-100 upper-layer d-none d-lg-inline-block d-xxl-inline-block position-absolute" style="z-index: 1"></div>
 
     <div class="vh-100 w-100 position-absolute overflow-hidden d-none d-lg-inline-block  d-xxl-inline-block">
-      <img src="./img/five-section-BG3.png" class="img-fluid w-100" alt="">
+      <img src="./img/five-section-BG3.png" class="img-fluid w-100 vh-100" alt="">
     </div>
 
     <div class="container h-100 d-block" style="z-index: 2;">
@@ -403,9 +398,10 @@
        
 
     </div>
-  </section>
+    </section>
 
 </div>
+
     <script type="module" src="/main.js"></script>
   </body>
 </html>

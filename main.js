@@ -1,125 +1,95 @@
-const cursor = document.querySelector('.cursor');
+import $ from 'jquery';
 
-document.addEventListener('mousemove', e => {
-    cursor.setAttribute("style", "top: "+(e.pageY - 149)+"px; left: "+(e.pageX - 149)+"px; z-index : 2;")
-})
-
-document.addEventListener('click', () => {
-    cursor.classList.add("expand");
-
-    setTimeout(() => {
-        cursor.classList.remove("expand");
-    }, 500);
-})
-
-import './style.scss'
+import './style.scss';
 import 'bootstrap';
 import Typed from 'typed.js';
 import Atropos from 'atropos';
 import fullpage from 'fullpage.js';
 import VenoBox from "venobox";
 
-let section2Active = document.getElementById("section2")
+const $cursor = $('.cursor');
 
-for (let i = 0; i < section2Active.classList.length;i++){
-    console.log(section2Active.classList[i])
-}
+$(document).on('mousemove', (e) => {
+    $cursor.css({
+        top: e.pageY - 149 + 'px',
+        left: e.pageX - 149 + 'px',
+        zIndex: 2
+    });
+});
+
+$(document).on('click', () => {
+    $cursor.addClass('expand');
+    setTimeout(() => {
+        $cursor.removeClass('expand');
+    }, 500);
+});
+
+$('#age').text(new Date().getFullYear() - 2004);
+
+
 
 new fullpage('#fullpage', {
-  //options here
-  autoScrolling:true,
-  scrollHorizontally: true,
-  navigation: true,
-  touchSensitivity: 13,
+    licenseKey: 'gplv3-license',
+    autoScrolling:true,
+    scrollHorizontally: true,
+    navigation: true,
+    touchSensitivity: 13,
+
+    onLeave: function(origin, destination){
+        console.log(origin.index);
+        console.log(destination.index);
+    },
 });
+
+$('.fp-watermark').remove();
+
 new VenoBox({
-  selector: '.venobox'
+    selector: '.venobox'
 });
 
 const myAtropos = Atropos({
-  el: '.my-atropos',
-  // rest of parameters
+    el: '.my-atropos'
 });
 
-let loader  = document.getElementById('loader-animation');
-setTimeout(
-    function (){
+const loader = $('#loader-animation');
+setTimeout(() => {
+    loader.remove();
+}, 3300);
 
-      loader.remove();
-    },3300);
-
-var typed = new Typed('#TypeJs', {
-  // Waits 1000ms after typing "First"
-  strings: ['Hein Pyae Sone','Web Developer', 'Frontend Developer'],
-  typeSpeed: 100,
-  backSpeed: 50,
-  startDelay: 300,
-  loop: true,
-  loopCount: Infinity,
+const typed = new Typed('#TypeJs', {
+    strings: ['Hein Pyae Sone','Web Developer', 'Frontend Developer'],
+    typeSpeed: 100,
+    backSpeed: 50,
+    startDelay: 300,
+    loop: true,
+    loopCount: Infinity
 });
 
-let profileClick = document.getElementById("profileClick");
+$('#profileClick').on('click', function () {
+    $(this).addClass('profile-click');
 
-profileClick.addEventListener("click", function () {
-  profileClick.classList.add("profile-click")
+    setTimeout(() => {
+        $(this).removeClass('profile-click');
+    }, 700);
+});
 
-  setTimeout(function () {
-    profileClick.classList.remove("profile-click")
-  },700)
-})
+$('#icon-container').on('click', function () {
+    const $fbIcon = $('#fbIcon');
+    const $igIcon = $('#igIcon');
+    const $ghIcon = $('#ghIcon');
+    const $msIcon = $('#msIcon');
+    const $iconContainer = $(this);
 
-let fullpageWm = document.querySelector('.fp-watermark');
-fullpageWm.remove();
+    $iconContainer.toggleClass('visible-icon-rotate-animation');
 
-let iconContainer = document.getElementById("icon-container")
-iconContainer.addEventListener("click", function () {
-    let fbIcon = document.getElementById("fbIcon")
-    let igIcon = document.getElementById("igIcon")
-    let ghIcon = document.getElementById("ghIcon")
-    let msIcon = document.getElementById("msIcon")
-
-
-    if ( iconContainer.classList.toggle("visible-icon-rotate-animation") === true){
-        iconContainer.classList.add("visible-icon-rotate-animation")
-        iconContainer.classList.remove("visible-icon-rotate-animation-reverse")
-    }else{
-        iconContainer.classList.add("visible-icon-rotate-animation-reverse")
+    if ($iconContainer.hasClass('visible-icon-rotate-animation')) {
+        $iconContainer.removeClass('visible-icon-rotate-animation-reverse');
+    } else {
+        $iconContainer.addClass('visible-icon-rotate-animation-reverse');
     }
 
-    if ( fbIcon.classList.toggle("icon-item-f") === true){
-        fbIcon.classList.add("icon-item-f")
-        fbIcon.classList.remove("icon-item-f-reverse")
-    }else{
-        fbIcon.classList.add("icon-item-f-reverse")
-    }
-    //....................//
-    if ( igIcon.classList.toggle("icon-item-i") === true){
-        igIcon.classList.add("icon-item-i")
-        igIcon.classList.remove("icon-item-i-reverse")
-    }else{
-        igIcon.classList.add("icon-item-i-reverse")
-    }
-    //....................//
-    if ( ghIcon.classList.toggle("icon-item-g") === true){
-        ghIcon.classList.add("icon-item-g")
-        ghIcon.classList.remove("icon-item-g-reverse")
-    }else{
-        ghIcon.classList.add("icon-item-g-reverse")
-    }
-    //....................//
-    if ( msIcon.classList.toggle("icon-item-m") === true){
-        msIcon.classList.add("icon-item-m")
-        msIcon.classList.remove("icon-item-m-reverse")
-    }else{
-        msIcon.classList.add("icon-item-m-reverse")
-    }
-
-
-    // fbIcon.classList.toggle("icon-item-f")
-    // igIcon.classList.toggle("icon-item-i")
-    // ghIcon.classList.toggle("icon-item-g")
-    // msIcon.classList.toggle("icon-item-m")
-})
-
-
-
+    $fbIcon.toggleClass('icon-item-f');
+    $igIcon.toggleClass('icon-item-i');
+    $ghIcon.toggleClass('icon-item-g');
+    $msIcon.toggleClass('icon-item-m');
+});
