@@ -1,0 +1,24 @@
+@media screen and (max-width: 992px){
+    //___common___//
+    .section {
+        overflow: scroll;
+    }
+
+    //___Hero Section___//
+    .hero-section {
+
+        .circles {
+            .profile-circle-1 {
+                width: 600px;
+                height: 600px;
+                border-radius: 50%;
+                border: 90px solid #57b1bf;
+                box-shadow: 0 0 80px #57b1bf ,inset 0 0 80px #57b1bf;
+                position: absolute;
+                top: -300px;
+                left: -300px;
+                z-index: 1;
+            }
+        }
+    }
+}

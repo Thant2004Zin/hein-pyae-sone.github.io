@@ -1,51 +1,117 @@
 import $ from 'jquery';
-
 import './style.scss';
+import './mobile.scss';
 import 'bootstrap';
+import gsap from 'gsap';
+import { ScrollTrigger } from "gsap/all";
 import Typed from 'typed.js';
 import Atropos from 'atropos';
-import fullpage from 'fullpage.js';
-import VenoBox from "venobox";
 
-const $cursor = $('.cursor');
 
-$(document).on('mousemove', (e) => {
-    $cursor.css({
-        top: e.pageY - 149 + 'px',
-        left: e.pageX - 149 + 'px',
-        zIndex: 2
-    });
-});
+// $(window).on('load', function() {
+//     $('#loader-animation').addClass('loaded');
+//   });
 
-$(document).on('click', () => {
-    $cursor.addClass('expand');
-    setTimeout(() => {
-        $cursor.removeClass('expand');
-    }, 500);
-});
+$('#day-night-mode').on('click', function () {
+    console.log('clicked');
+    $('.hero-section').toggleClass('dark-mode');
+})
+
+
+gsap.registerPlugin(ScrollTrigger);
 
 $('#age').text(new Date().getFullYear() - 2004);
 
+let Horizontalsections = gsap.utils.toArray(".gsap-Hscroll-section");
+let scrollsnap = gsap.utils.toArray(".section");
+let scrollsnapV2 = gsap.utils.toArray(".sectionV2");
 
-
-new fullpage('#fullpage', {
-    licenseKey: 'gplv3-license',
-    autoScrolling:true,
-    scrollHorizontally: true,
-    navigation: true,
-    touchSensitivity: 13,
-
-    onLeave: function(origin, destination){
-        console.log(origin.index);
-        console.log(destination.index);
-    },
+let scrollTween = gsap.to(Horizontalsections, {
+    xPercent: -100 * (Horizontalsections.length -1),
+    ease: "none",
+    scrollTrigger: {
+        trigger: ".third-section",
+        pin : true,
+        scrub : 1,
+        end: "4000",
+        // markers: true,
+    }
 });
 
-$('.fp-watermark').remove();
-
-new VenoBox({
-    selector: '.venobox'
+scrollsnap.forEach((section, i) => {
+    ScrollTrigger.create({
+        trigger: section,
+        start: "top top",
+        end: "bottom top",
+        // markers: true,
+        scrub: 1,
+        snap: 1,
+    });
 });
+
+scrollsnapV2.forEach((section, i) => {
+    ScrollTrigger.create({
+        trigger: section,
+        start: "top bottom",
+        end: "bottom bottom",
+        // markers: true,
+        scrub: 1,
+        snap: 1,
+    });
+});
+
+
+let animateImg1 = gsap.utils.toArray(".animate-img1");
+
+let tl1 = gsap.timeline({
+    scrollTrigger: {
+        ease : "none",
+        trigger: animateImg1,
+        start: "top top",
+        end: "1200 top",
+        scrub : 1,
+        // markers: true,
+    }
+});
+
+let tl2 = gsap.timeline({
+    scrollTrigger: {
+        ease : "none",
+        trigger: animateImg1,
+        start: "top top",
+        end: "1800 top",
+        scrub : 1,
+        // markers: true,
+    }
+});
+
+let tl3 = gsap.timeline({
+    scrollTrigger: {
+        ease : "none",
+        trigger: animateImg1,
+        start: "top top",
+        end: "2500 top",
+        scrub : 1,
+        // markers: true,
+    }
+});
+
+let tl4 = gsap.timeline({
+    scrollTrigger: {
+        ease : "none",
+        trigger: animateImg1,
+        start: "top top",
+        end: "2700 top",
+        scrub : 1,
+        // markers: true,
+    }
+});
+
+
+tl1.to(".animate-img1", { x: -1500 });
+tl2.to(".animate-img2", { x: -1500 });
+tl3.to(".animate-img3", { x: -2200 });
+tl4.to(".animate-img4", { x: -2800 });
 
 const myAtropos = Atropos({
     el: '.my-atropos'
