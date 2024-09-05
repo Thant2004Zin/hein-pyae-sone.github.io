@@ -21,4 +21,31 @@
             }
         }
     }
+
+    .about-section {
+
+        .content-block {
+            .atropos-el{
+                height: 300px;
+                border-radius: 30px;
+                transition: 0.4s;
+          
+            
+                .age{
+                  font-size: 100px;
+                }
+            
+                .year-old{
+                  font-size: 16px;
+                  margin: 0;
+                  right: 0px;
+                  top: 35px;
+                }
+            }
+        }
+    }
+
+    .third-section {
+        
+    }
 }

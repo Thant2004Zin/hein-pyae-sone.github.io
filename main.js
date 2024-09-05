@@ -1,24 +1,46 @@
 import $ from 'jquery';
 import './style.scss';
 import './mobile.scss';
+import './movingcard.scss'
 import 'bootstrap';
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/all";
 import Typed from 'typed.js';
 import Atropos from 'atropos';
+import './gsaptimeline.js'
+
+gsap.registerPlugin(ScrollTrigger);
 
 
 // $(window).on('load', function() {
 //     $('#loader-animation').addClass('loaded');
 //   });
 
+const loader = $('#loader-animation');
+setTimeout(() => {
+    loader.remove();
+}, 3300);
+
+
 $('#day-night-mode').on('click', function () {
-    console.log('clicked');
+
+    if($(".darkThemeAnimate").hasClass("active")){
+        $(".darkThemeAnimate").removeClass('active');
+        $(".darkThemeAnimate").addClass('no-active');
+
+        console.log("active class hass been removed")
+    }else if($(".darkThemeAnimate").hasClass("no-active")){
+        $(".darkThemeAnimate").addClass('active');
+        $(".darkThemeAnimate").removeClass('no-active');
+
+        console.log("active class hass been added")
+    }
+
     $('.hero-section').toggleClass('dark-mode');
+    $('.about-section').toggleClass('dark-mode');
+    $('.third-section').toggleClass('dark-mode');
+    $('.fourth-section').toggleClass('dark-mode');
 })
-
-
-gsap.registerPlugin(ScrollTrigger);
 
 $('#age').text(new Date().getFullYear() - 2004);
 
@@ -60,67 +82,10 @@ scrollsnapV2.forEach((section, i) => {
     });
 });
 
-
-let animateImg1 = gsap.utils.toArray(".animate-img1");
-
-let tl1 = gsap.timeline({
-    scrollTrigger: {
-        ease : "none",
-        trigger: animateImg1,
-        start: "top top",
-        end: "1200 top",
-        scrub : 1,
-        // markers: true,
-    }
-});
-
-let tl2 = gsap.timeline({
-    scrollTrigger: {
-        ease : "none",
-        trigger: animateImg1,
-        start: "top top",
-        end: "1800 top",
-        scrub : 1,
-        // markers: true,
-    }
-});
-
-let tl3 = gsap.timeline({
-    scrollTrigger: {
-        ease : "none",
-        trigger: animateImg1,
-        start: "top top",
-        end: "2500 top",
-        scrub : 1,
-        // markers: true,
-    }
-});
-
-let tl4 = gsap.timeline({
-    scrollTrigger: {
-        ease : "none",
-        trigger: animateImg1,
-        start: "top top",
-        end: "2700 top",
-        scrub : 1,
-        // markers: true,
-    }
-});
-
-
-tl1.to(".animate-img1", { x: -1500 });
-tl2.to(".animate-img2", { x: -1500 });
-tl3.to(".animate-img3", { x: -2200 });
-tl4.to(".animate-img4", { x: -2800 });
-
 const myAtropos = Atropos({
     el: '.my-atropos'
 });
 
-const loader = $('#loader-animation');
-setTimeout(() => {
-    loader.remove();
-}, 3300);
 
 const typed = new Typed('#TypeJs', {
     strings: ['Hein Pyae Sone','Web Developer', 'Frontend Developer'],
@@ -133,7 +98,6 @@ const typed = new Typed('#TypeJs', {
 
 $('#profileClick').on('click', function () {
     $(this).addClass('profile-click');
-
     setTimeout(() => {
         $(this).removeClass('profile-click');
     }, 700);
