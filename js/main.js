@@ -1,7 +1,7 @@
 import $ from 'jquery';
-import './style.scss';
-import './mobile.scss';
-import './movingcard.scss'
+import '../css/style.scss';
+import '../css/mobile.scss';
+import '../css/movingcard.scss'
 import 'bootstrap';
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/all";
