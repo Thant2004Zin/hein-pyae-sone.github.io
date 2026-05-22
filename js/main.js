@@ -124,17 +124,12 @@ $('#icon-container').on('click', function () {
     $msIcon.toggleClass('icon-item-m');
 });
 
-// Contact form -> Netlify Forms (enable notifications in Netlify dashboard)
+// Contact form -> FormSubmit.co (works with drag-and-drop deploys; no Netlify Forms setup)
 const CONTACT_TO_EMAIL = 'frequency3078@gmail.com';
-const CONTACT_FORM_NAME = 'contact';
+const CONTACT_FORM_ENDPOINT = `https://formsubmit.co/ajax/${encodeURIComponent(CONTACT_TO_EMAIL)}`;
 
 function isValidEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email || '').trim());
-}
-
-function isLocalDevHost() {
-    const host = window.location.hostname;
-    return host === 'localhost' || host === '127.0.0.1';
 }
 
 function buildMailtoHref({ name, email, subject, message }) {
@@ -158,26 +153,15 @@ function clearContactValidation() {
     });
 }
 
-function buildNetlifyFormPayload($form, subject) {
-    const payload = new URLSearchParams();
-    const formData = new FormData($form[0]);
-
-    formData.forEach((value, key) => {
-        if (key === 'subject') {
-            payload.append(key, `[Portfolio] ${String(subject).trim()}`);
-        } else {
-            payload.append(key, String(value));
-        }
-    });
-
-    if (!payload.has('form-name')) {
-        payload.append('form-name', CONTACT_FORM_NAME);
-    }
-    if (!payload.has('bot-field')) {
-        payload.append('bot-field', '');
-    }
-
-    return payload;
+function buildContactPayload({ name, email, subject, message }) {
+    return {
+        name: String(name).trim(),
+        email: String(email).trim(),
+        _replyto: String(email).trim(),
+        _subject: `[Portfolio] ${String(subject).trim()}`,
+        message: String(message).trim(),
+        _template: 'table',
+    };
 }
 
 $('#contactAltMailto').attr('href', buildMailtoHref({}));
@@ -228,34 +212,25 @@ $('#contactForm').on('submit', async function (e) {
 
     $mailto.attr('href', buildMailtoHref({ name, email, subject, message }));
 
-    if (isLocalDevHost()) {
-        setContactStatus(
-            $status,
-            'Form delivery only works on the live Netlify site. Use “Or mail directly” while running locally.',
-            'error'
-        );
-        return;
-    }
-
-    const payload = buildNetlifyFormPayload($form, subject);
+    const payload = buildContactPayload({ name, email, subject, message });
 
     $submitBtn.prop('disabled', true);
     setContactStatus($status, 'Sending...', null);
 
     try {
-        const response = await fetch('/', {
+        const response = await fetch(CONTACT_FORM_ENDPOINT, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: payload.toString(),
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+            },
+            body: JSON.stringify(payload),
         });
 
-        if (!response.ok) {
-            if (response.status === 404) {
-                throw new Error(
-                    'Netlify form "contact" not found (404). Redeploy after a successful build so Netlify can register the form.'
-                );
-            }
-            throw new Error(`Submit failed (${response.status})`);
+        const result = await response.json().catch(() => ({}));
+
+        if (!response.ok || result.success === false) {
+            throw new Error(result.message || `Submit failed (${response.status})`);
         }
 
         setContactStatus($status, 'Message sent. I’ll get back to you soon.', 'success');
@@ -266,7 +241,7 @@ $('#contactForm').on('submit', async function (e) {
         console.error(err);
         setContactStatus(
             $status,
-            'Could not send right now. Use “Or mail directly” (your message is pre-filled) or try again after the site redeploys.',
+            'Could not send right now. Use “Or mail directly” (your message is pre-filled) or try again.',
             'error'
         );
     } finally {
