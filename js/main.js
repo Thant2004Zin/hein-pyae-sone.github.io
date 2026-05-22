@@ -124,14 +124,25 @@ $('#icon-container').on('click', function () {
     $msIcon.toggleClass('icon-item-m');
 });
 
-// Contact form -> Netlify Forms (emails configured in Netlify dashboard)
+// Contact form -> Netlify Forms (enable notifications in Netlify dashboard)
 const CONTACT_TO_EMAIL = 'frequency3078@gmail.com';
 const CONTACT_FORM_NAME = 'contact';
 
-$('#contactAltMailto').attr('href', `mailto:${CONTACT_TO_EMAIL}`);
-
 function isValidEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email || '').trim());
+}
+
+function isLocalDevHost() {
+    const host = window.location.hostname;
+    return host === 'localhost' || host === '127.0.0.1';
+}
+
+function buildMailtoHref({ name, email, subject, message }) {
+    const params = new URLSearchParams({
+        subject: `[Portfolio] ${String(subject || '').trim() || 'Contact'}`,
+        body: `Name: ${String(name || '').trim()}\nEmail: ${String(email || '').trim()}\n\n${String(message || '').trim()}`,
+    });
+    return `mailto:${CONTACT_TO_EMAIL}?${params.toString()}`;
 }
 
 function setContactStatus($status, text, type) {
@@ -147,6 +158,43 @@ function clearContactValidation() {
     });
 }
 
+function buildNetlifyFormPayload($form, subject) {
+    const payload = new URLSearchParams();
+    const formData = new FormData($form[0]);
+
+    formData.forEach((value, key) => {
+        if (key === 'subject') {
+            payload.append(key, `[Portfolio] ${String(subject).trim()}`);
+        } else {
+            payload.append(key, String(value));
+        }
+    });
+
+    if (!payload.has('form-name')) {
+        payload.append('form-name', CONTACT_FORM_NAME);
+    }
+    if (!payload.has('bot-field')) {
+        payload.append('bot-field', '');
+    }
+
+    return payload;
+}
+
+$('#contactAltMailto').attr('href', buildMailtoHref({}));
+
+$('#contactForm').on('input', function () {
+    const $form = $(this);
+    $('#contactAltMailto').attr(
+        'href',
+        buildMailtoHref({
+            name: $('#contactName').val(),
+            email: $('#contactEmail').val(),
+            subject: $('#contactSubject').val(),
+            message: $('#contactMessage').val(),
+        })
+    );
+});
+
 $('#contactForm').on('submit', async function (e) {
     e.preventDefault();
 
@@ -157,6 +205,7 @@ $('#contactForm').on('submit', async function (e) {
     const message = $('#contactMessage').val();
     const $status = $('#contactFormStatus');
     const $submitBtn = $('#contactSubmitBtn');
+    const $mailto = $('#contactAltMailto');
 
     let ok = true;
 
@@ -177,12 +226,18 @@ $('#contactForm').on('submit', async function (e) {
         return;
     }
 
-    const payload = new URLSearchParams();
-    payload.append('form-name', CONTACT_FORM_NAME);
-    payload.append('name', String(name).trim());
-    payload.append('email', String(email).trim());
-    payload.append('subject', `[Portfolio] ${String(subject).trim()}`);
-    payload.append('message', String(message).trim());
+    $mailto.attr('href', buildMailtoHref({ name, email, subject, message }));
+
+    if (isLocalDevHost()) {
+        setContactStatus(
+            $status,
+            'Form delivery only works on the live Netlify site. Use “Or mail directly” while running locally.',
+            'error'
+        );
+        return;
+    }
+
+    const payload = buildNetlifyFormPayload($form, subject);
 
     $submitBtn.prop('disabled', true);
     setContactStatus($status, 'Sending...', null);
@@ -195,17 +250,23 @@ $('#contactForm').on('submit', async function (e) {
         });
 
         if (!response.ok) {
+            if (response.status === 404) {
+                throw new Error(
+                    'Netlify form "contact" not found (404). Redeploy after a successful build so Netlify can register the form.'
+                );
+            }
             throw new Error(`Submit failed (${response.status})`);
         }
 
         setContactStatus($status, 'Message sent. I’ll get back to you soon.', 'success');
         $form.trigger('reset');
         clearContactValidation();
+        $mailto.attr('href', buildMailtoHref({}));
     } catch (err) {
         console.error(err);
         setContactStatus(
             $status,
-            'Could not send right now. Use “Or mail directly” or try again.',
+            'Could not send right now. Use “Or mail directly” (your message is pre-filled) or try again after the site redeploys.',
             'error'
         );
     } finally {
