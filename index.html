@@ -4,25 +4,25 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image" href="./img/favicon-2.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My-portfolio</title>
+    <title>Hein Pyae Sone</title>
 
     <!-- Primary Meta Tags -->
-    <title>My-Portfolio😍😍</title>
-    <meta name="title" content="My-Portfolio😍😍">
-    <meta name="description" content="Hello I am Hein Pyae Sone ဘာညာဆမကလာ😆😆">
+    <title>Hein Pyae Sone</title>
+    <meta name="title" content="Frontend Web Developer specializing in responsive websites and interactive web experiences.">
+    <meta name="description" content="Hi, I'm Hein Pyae Sone — a passionate web developer creating modern and interactive websites.">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://hein-pyae-sone.netlify.app/">
-    <meta property="og:title" content="My-Portfolio😍😍">
-    <meta property="og:description" content="Hello I am Hein Pyae Sone ဘာညာဆမကလာ😆😆">
+    <meta property="og:title" content="Frontend Web Developer specializing in responsive websites and interactive web experiences.">
+    <meta property="og:description" content="Hi, I'm Hein Pyae Sone — a passionate web developer creating modern and interactive websites.">
     <meta property="og:image" content="https://hein-pyae-sone.netlify.app/assets/protifolio-img-meta.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://hein-pyae-sone.netlify.app/">
-    <meta property="twitter:title" content="My-Portfolio😍😍">
-    <meta property="twitter:description" content="Hello I am Hein Pyae Sone ဘာညာဆမကလာ😆😆">
+    <meta property="twitter:title" content="Frontend Web Developer specializing in responsive websites and interactive web experiences.">
+    <meta property="twitter:description" content="Hi, I'm Hein Pyae Sone — a passionate web developer creating modern and interactive websites.">
     <meta property="twitter:image" content="https://hein-pyae-sone.netlify.app/assets/protifolio-img-meta.png">
 
 
@@ -139,7 +139,6 @@
 
   <section class="about-section section position-relative" id="section2">
     <p class="vertical-text white d-none d-md-inline fw-bold">About Me</p>
-
 
     <div class="position-relative vh-100 wholeCt">
 
@@ -394,44 +393,67 @@
     <img src="./img/section-5-mobileBG-1.png" class="img-fluid w-100 vh-100 d-block d-lg-none position-absolute" style="z-index: -2;" alt="">
     <div class="w-100 min-vh-100 upper-layer d-none d-lg-inline-block d-xxl-inline-block position-absolute" style="z-index: -1"></div>
 
+    <div class="container-fluid vh-100 d-flex justify-content-center align-items-center px-4 px-lg-5">
 
-  <div class="container vh-100 d-flex justify-content-center align-items-center">
-
-    <div class="row mb-3 flex-column flex-lg-row">
-      <div class="col-lg-6">
-        <img src="./img/Copy of Animation - 1709633119169.gif" width="250px">
-      </div>
-      <div class="col-lg-6" style="padding: 0 60px">
-        <div class="d-flex justify-content-center align-items-center h-100">
-          <div class="row g-2 pt-3">
-            <div class="col lg-5">
-              <input type="text" class="form-control inp-BG" name="" placeholder="Name">
-            </div>
-            <div class="col lg-5">
-              <input type="text" class="form-control inp-BG" name="" placeholder="Email">
-            </div>
-            <div class="col-lg-12">
-              <input type="text" class="form-control inp-BG" name="" placeholder="Description">
-            </div>
-            <div class="col-lg-12">
-              <textarea name="" class="form-control inp-BG" id="" cols="12" rows="7" placeholder="Messages"></textarea>
-            </div>
-            <div class="col-lg-6 mt-3">
-              <button class="my-btn">Contact Me</button>
-            </div>
+      <div class="row w-100 mb-3 align-items-center flex-column flex-lg-row g-4 gx-lg-5">
+        <div class="col-12 col-lg-6">
+          <div class="contact-left-space d-flex justify-content-center justify-content-lg-start align-items-center h-100">
+            <!-- Reserved left space (add your illustration later) -->
           </div>
         </div>
+        <div class="col-12 col-lg-6">
+          <div class="d-flex justify-content-center justify-content-lg-end align-items-center h-100">
 
+            <form class="contact-form-card" id="contactForm" novalidate>
+              <div class="mb-3">
+                <h2 class="m-0 five-section-text fw-bolder">Contact</h2>
+                <p class="m-0 text-white-50">Send me a message — it will open your mail app.</p>
+              </div>
+
+              <div class="row g-2">
+                <div class="col-12 col-md-6">
+                  <label class="form-label text-white-50" for="contactName">Name</label>
+                  <input type="text" class="form-control inp-BG" id="contactName" name="name" placeholder="Your name" autocomplete="name" required>
+                  <div class="invalid-feedback">Please enter your name.</div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <label class="form-label text-white-50" for="contactEmail">Email</label>
+                  <input type="email" class="form-control inp-BG" id="contactEmail" name="email" placeholder="you@example.com" autocomplete="email" required>
+                  <div class="invalid-feedback">Please enter a valid email.</div>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label text-white-50" for="contactSubject">Subject</label>
+                  <input type="text" class="form-control inp-BG" id="contactSubject" name="subject" placeholder="What is this about?" required>
+                  <div class="invalid-feedback">Please add a subject.</div>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label text-white-50" for="contactMessage">Message</label>
+                  <textarea class="form-control inp-BG" id="contactMessage" name="message" rows="7" placeholder="Write your message..." required></textarea>
+                  <div class="invalid-feedback">Please write a message.</div>
+                </div>
+
+                <div class="col-12 d-flex flex-wrap gap-2 align-items-center mt-3">
+                  <button class="my-btn" type="submit" id="contactSubmitBtn">Send Email</button>
+                  <a class="my-btn contact-alt-link" id="contactAltMailto" href="mailto:heinpyaesone@example.com">Or mail directly</a>
+                  <span class="contact-form-status" id="contactFormStatus" role="status" aria-live="polite"></span>
+                </div>
+              </div>
+            </form>
+
+          </div>
+        </div>
       </div>
+
+      
+        <!-- <div class="mapouter" style="height: 260px;overflow-y: hidden">
+          <iframe width="100%" height="100%" id="gmap_canvas2" src="https://maps.google.com/maps?q=16.898469,96.1846533&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><style>.mapouter{position:relative;text-align:right;height:500px;width:100%;}</style>
+        </div> -->
+      
+
     </div>
-
-    
-      <!-- <div class="mapouter" style="height: 260px;overflow-y: hidden">
-        <iframe width="100%" height="100%" id="gmap_canvas2" src="https://maps.google.com/maps?q=16.898469,96.1846533&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><style>.mapouter{position:relative;text-align:right;height:500px;width:100%;}</style>
-      </div> -->
-    
-
-  </div>
   </section>
 
 

@@ -123,3 +123,67 @@ $('#icon-container').on('click', function () {
     $ghIcon.toggleClass('icon-item-g');
     $msIcon.toggleClass('icon-item-m');
 });
+
+// Contact form -> mailto submit
+const CONTACT_TO_EMAIL = 'heinpyaesone@example.com';
+
+function encodeMailtoValue(value) {
+    return encodeURIComponent(String(value || '').trim());
+}
+
+function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email || '').trim());
+}
+
+$('#contactForm').on('submit', function (e) {
+    e.preventDefault();
+
+    const $form = $(this);
+    const name = $('#contactName').val();
+    const email = $('#contactEmail').val();
+    const subject = $('#contactSubject').val();
+    const message = $('#contactMessage').val();
+    const $status = $('#contactFormStatus');
+
+    let ok = true;
+
+    const mark = (id, valid) => {
+        const $el = $(id);
+        $el.toggleClass('is-invalid', !valid);
+        $el.toggleClass('is-valid', valid);
+        ok = ok && valid;
+    };
+
+    mark('#contactName', String(name || '').trim().length > 0);
+    mark('#contactEmail', isValidEmail(email));
+    mark('#contactSubject', String(subject || '').trim().length > 0);
+    mark('#contactMessage', String(message || '').trim().length > 0);
+
+    if (!ok) {
+        $status.text('Please fix the highlighted fields.');
+        return;
+    }
+
+    const mailSubject = `[Portfolio] ${subject}`;
+    const bodyLines = [
+        `Name: ${String(name).trim()}`,
+        `Email: ${String(email).trim()}`,
+        '',
+        String(message).trim(),
+    ];
+
+    const mailtoHref = `mailto:${CONTACT_TO_EMAIL}?subject=${encodeMailtoValue(mailSubject)}&body=${encodeMailtoValue(bodyLines.join('\n'))}`;
+
+    $('#contactAltMailto').attr('href', `mailto:${CONTACT_TO_EMAIL}`);
+    $status.text('Opening your email app...');
+
+    window.location.href = mailtoHref;
+    setTimeout(() => {
+        $status.text('If nothing opened, use “Or mail directly”.');
+    }, 1200);
+
+    $form.trigger('reset');
+    ['#contactName', '#contactEmail', '#contactSubject', '#contactMessage'].forEach((id) => {
+        $(id).removeClass('is-valid is-invalid');
+    });
+});
