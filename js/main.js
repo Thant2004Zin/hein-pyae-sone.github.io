@@ -124,18 +124,30 @@ $('#icon-container').on('click', function () {
     $msIcon.toggleClass('icon-item-m');
 });
 
-// Contact form -> mailto submit
-const CONTACT_TO_EMAIL = 'heinpyaesone@example.com';
+// Contact form -> Netlify Forms (emails configured in Netlify dashboard)
+const CONTACT_TO_EMAIL = 'frequency3078@gmail.com';
+const CONTACT_FORM_NAME = 'contact';
 
-function encodeMailtoValue(value) {
-    return encodeURIComponent(String(value || '').trim());
-}
+$('#contactAltMailto').attr('href', `mailto:${CONTACT_TO_EMAIL}`);
 
 function isValidEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email || '').trim());
 }
 
-$('#contactForm').on('submit', function (e) {
+function setContactStatus($status, text, type) {
+    $status
+        .text(text)
+        .removeClass('is-success is-error')
+        .addClass(type === 'success' ? 'is-success' : type === 'error' ? 'is-error' : '');
+}
+
+function clearContactValidation() {
+    ['#contactName', '#contactEmail', '#contactSubject', '#contactMessage'].forEach((id) => {
+        $(id).removeClass('is-valid is-invalid');
+    });
+}
+
+$('#contactForm').on('submit', async function (e) {
     e.preventDefault();
 
     const $form = $(this);
@@ -144,6 +156,7 @@ $('#contactForm').on('submit', function (e) {
     const subject = $('#contactSubject').val();
     const message = $('#contactMessage').val();
     const $status = $('#contactFormStatus');
+    const $submitBtn = $('#contactSubmitBtn');
 
     let ok = true;
 
@@ -160,30 +173,42 @@ $('#contactForm').on('submit', function (e) {
     mark('#contactMessage', String(message || '').trim().length > 0);
 
     if (!ok) {
-        $status.text('Please fix the highlighted fields.');
+        setContactStatus($status, 'Please fix the highlighted fields.', 'error');
         return;
     }
 
-    const mailSubject = `[Portfolio] ${subject}`;
-    const bodyLines = [
-        `Name: ${String(name).trim()}`,
-        `Email: ${String(email).trim()}`,
-        '',
-        String(message).trim(),
-    ];
+    const payload = new URLSearchParams();
+    payload.append('form-name', CONTACT_FORM_NAME);
+    payload.append('name', String(name).trim());
+    payload.append('email', String(email).trim());
+    payload.append('subject', `[Portfolio] ${String(subject).trim()}`);
+    payload.append('message', String(message).trim());
 
-    const mailtoHref = `mailto:${CONTACT_TO_EMAIL}?subject=${encodeMailtoValue(mailSubject)}&body=${encodeMailtoValue(bodyLines.join('\n'))}`;
+    $submitBtn.prop('disabled', true);
+    setContactStatus($status, 'Sending...', null);
 
-    $('#contactAltMailto').attr('href', `mailto:${CONTACT_TO_EMAIL}`);
-    $status.text('Opening your email app...');
+    try {
+        const response = await fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: payload.toString(),
+        });
 
-    window.location.href = mailtoHref;
-    setTimeout(() => {
-        $status.text('If nothing opened, use “Or mail directly”.');
-    }, 1200);
+        if (!response.ok) {
+            throw new Error(`Submit failed (${response.status})`);
+        }
 
-    $form.trigger('reset');
-    ['#contactName', '#contactEmail', '#contactSubject', '#contactMessage'].forEach((id) => {
-        $(id).removeClass('is-valid is-invalid');
-    });
+        setContactStatus($status, 'Message sent. I’ll get back to you soon.', 'success');
+        $form.trigger('reset');
+        clearContactValidation();
+    } catch (err) {
+        console.error(err);
+        setContactStatus(
+            $status,
+            'Could not send right now. Use “Or mail directly” or try again.',
+            'error'
+        );
+    } finally {
+        $submitBtn.prop('disabled', false);
+    }
 });

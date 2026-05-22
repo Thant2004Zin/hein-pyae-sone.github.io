@@ -404,10 +404,23 @@
         <div class="col-12 col-lg-6">
           <div class="d-flex justify-content-center justify-content-lg-end align-items-center h-100">
 
-            <form class="contact-form-card" id="contactForm" novalidate>
+            <form
+              class="contact-form-card"
+              id="contactForm"
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              novalidate
+            >
+              <input type="hidden" name="form-name" value="contact" />
+              <p class="contact-honeypot" aria-hidden="true">
+                <label>Don’t fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+              </p>
+
               <div class="mb-3">
                 <h2 class="m-0 five-section-text fw-bolder">Contact</h2>
-                <p class="m-0 text-white-50">Send me a message — it will open your mail app.</p>
+                <p class="m-0 text-white-50">Send a message — it goes straight to my inbox.</p>
               </div>
 
               <div class="row g-2">
@@ -436,8 +449,8 @@
                 </div>
 
                 <div class="col-12 d-flex flex-wrap gap-2 align-items-center mt-3">
-                  <button class="my-btn" type="submit" id="contactSubmitBtn">Send Email</button>
-                  <a class="my-btn contact-alt-link" id="contactAltMailto" href="mailto:heinpyaesone@example.com">Or mail directly</a>
+                  <button class="my-btn" type="submit" id="contactSubmitBtn">Send message</button>
+                  <a class="my-btn contact-alt-link" id="contactAltMailto" href="mailto:frequency3078@gmail.com">Or mail directly</a>
                   <span class="contact-form-status" id="contactFormStatus" role="status" aria-live="polite"></span>
                 </div>
               </div>

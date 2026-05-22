@@ -692,11 +692,29 @@ body {
     }
   }
 
+  .contact-honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
+
   .contact-form-status {
     font-weight: 600;
     color: rgba(255, 255, 255, 0.9);
     text-shadow: 0 0 22px rgba(0, 255, 255, 0.18);
     min-height: 22px;
+
+    &.is-success {
+      color: rgba(144, 255, 220, 0.95);
+    }
+
+    &.is-error {
+      color: rgba(255, 170, 170, 0.95);
+    }
   }
 }
 //loder
