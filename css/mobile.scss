@@ -1,51 +1,100 @@
-@media screen and (max-width: 992px){
-    //___common___//
+// ============================================
+// RESPONSIVE BREAKPOINTS
+// ============================================
+// Tablets and small laptops (max-width: 992px)
+// ============================================
+
+@media screen and (max-width: 992px) {
+    
+    // ==========================================
+    // COMMON STYLES
+    // ==========================================
     .section {
         overflow: scroll;
     }
 
-    //___Hero Section___//
-    .hero-section {
+    // ============================================
+    // Vertical Text
+    // ============================================
+    .vertical-text {
+        display: none;
+    }
 
+    // ==========================================
+    // HERO SECTION
+    // ==========================================
+    .hero-section {
         .circles {
             .profile-circle-1 {
-                width: 600px;
-                height: 600px;
-                border-radius: 50%;
-                border: 90px solid #57b1bf;
-                box-shadow: 0 0 80px #57b1bf ,inset 0 0 80px #57b1bf;
                 position: absolute;
                 top: -300px;
                 left: -300px;
                 z-index: 1;
+                
+                width: 600px;
+                height: 600px;
+                border-radius: 50%;
+                
+                border: 90px solid #57b1bf;
+                box-shadow: 0 0 80px #57b1bf,inset 0 0 80px #57b1bf;
             }
         }
     }
 
+    // ==========================================
+    // ABOUT SECTION
+    // ==========================================
     .about-section {
-
         .content-block {
-            .atropos-el{
+            .atropos-el {
                 height: 300px;
                 border-radius: 30px;
                 transition: 0.4s;
-          
-            
-                .age{
-                  font-size: 100px;
+                
+                .age {
+                    font-size: 100px;
                 }
-            
-                .year-old{
-                  font-size: 16px;
-                  margin: 0;
-                  right: 0px;
-                  top: 35px;
+                
+                .year-old {
+                    font-size: 16px;
+                    margin: 0;
+                    right: 0px;
+                    top: 35px;
                 }
             }
         }
     }
 
+    // ==========================================
+    // THIRD SECTION
+    // ==========================================
     .third-section {
-        
+
+        .third-section-container {
+            .project-Demo {
+                width: 100%;
+                padding: 0 40px;
+
+                .project {
+
+                    .project-showCave {
+                        width: 100%;
+                        margin-right: 0;
+                        margin-bottom: 25px;
+                    }
+                    
+                    .project-text {
+                        width: 100%;
+                    }
+                }
+            }
+        }
     }
+
+    // ==========================================
+    // FOURTH SECTION (Optional - Add if needed)
+    // ==========================================
+    // .fourth-section {
+    //     // Add your styles here
+    // }
 }

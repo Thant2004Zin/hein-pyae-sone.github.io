@@ -8,27 +8,32 @@ $card-border-radius: 15px;
 @import "venobox/dist/venobox.css";
 @import "animate.css/animate.css";
 
-
-.Delay-for-animate2-6{
+// ============================================
+// Animation Delays
+// ============================================
+.Delay-for-animate2-6 {
   animation-delay: 2.6s;
 }
-.Delay-for-animate2-7{
+.Delay-for-animate2-7 {
   animation-delay: 2.7s;
 }
-.Delay-for-animate2-9{
+.Delay-for-animate2-9 {
   animation-delay: 2.9s;
 }
-.Delay-for-animate3-1{
+.Delay-for-animate3-1 {
   animation-delay: 3.1s;
 }
-.Delay-for-animate3-3{
-  animation-delay: 3.3s;  
+.Delay-for-animate3-3 {
+  animation-delay: 3.3s;
 }
-.Delay-for-animate3-5{
-   animation-delay: 3.5s;
+.Delay-for-animate3-5 {
+  animation-delay: 3.5s;
 }
 
-*{
+// ============================================
+// Global Reset & Base
+// ============================================
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -44,16 +49,19 @@ body {
     overflow-y: scroll;
   }
 }
+
 ::-webkit-scrollbar {
   display: none;
 }
 
+// ============================================
+// Toggle Switch (Day/Night Mode)
+// ============================================
 .toggle-switch {
   position: fixed;
   top: 12px;
   right: 20px;
   z-index: 100;
-
 
   .switch {
     position: relative;
@@ -74,7 +82,12 @@ body {
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(135deg, #c7f6ff 0%, #7ad7e8 60%, #57b1bf 100%);
+      background: linear-gradient(
+        135deg,
+        #c7f6ff 0%,
+        #7ad7e8 60%,
+        #57b1bf 100%
+      );
       border: 1px solid rgba(0, 0, 0, 0.08);
       transition: 0.6s ease;
       border-radius: 999px;
@@ -88,7 +101,12 @@ body {
         left: 3px;
         top: 50%;
         transform: translateY(-50%);
-        background: radial-gradient(circle at 35% 35%, #ffffff 0%, #f2fbff 45%, #d7f4fb 100%);
+        background: radial-gradient(
+          circle at 35% 35%,
+          #ffffff 0%,
+          #f2fbff 45%,
+          #d7f4fb 100%
+        );
         transition: 0.6s ease;
         border-radius: 50%;
         box-shadow:
@@ -124,20 +142,29 @@ body {
       }
     }
 
+    // Checked state
     input:checked + .slider {
-      background: linear-gradient(135deg, #2c2c2c 0%, #3a3a3a 55%, #1f1f1f 100%);
+      background: linear-gradient(
+        135deg,
+        #2c2c2c 0%,
+        #3a3a3a 55%,
+        #1f1f1f 100%
+      );
       border-color: rgba(255, 255, 255, 0.14);
-    }
-  
-    input:checked + .slider:before {
+
+      &::before {
         transform: translate(38px, -50%);
-        background: radial-gradient(circle at 35% 35%, #4b4b4b 0%, #2f2f2f 55%, #1f1f1f 100%);
+        background: radial-gradient(
+          circle at 35% 35%,
+          #4b4b4b 0%,
+          #2f2f2f 55%,
+          #1f1f1f 100%
+        );
         box-shadow:
           0 8px 18px rgba(0, 0, 0, 0.32),
           inset 0 0 0 1px rgba(255, 255, 255, 0.08);
-    }
+      }
 
-    input:checked + .slider {
       .light {
         opacity: 0.3;
         color: rgba(255, 255, 255, 0.55);
@@ -152,13 +179,15 @@ body {
   }
 }
 
-//___common___//
+// ============================================
+// Common Components
+// ============================================
 .my-btn {
   text-decoration: none;
   font-weight: bold;
   border: 3px solid cyan;
   padding: 12px 18px;
-  border-radius : 30px;
+  border-radius: 30px;
   background-color: transparent;
   color: cyan;
   transition: 0.4s;
@@ -166,12 +195,15 @@ body {
   &:hover {
     border: 3px solid cyan;
     padding: 12px 20px;
-    border-radius : 30px;
+    border-radius: 30px;
     color: cyan;
     letter-spacing: 3px;
   }
 }
 
+// ============================================
+// Icon Group (Desktop Social Icons)
+// ============================================
 .icon-group {
   display: flex;
   height: 45px;
@@ -196,12 +228,15 @@ body {
   }
 }
 
+// ============================================
+// Vertical Text
+// ============================================
 .vertical-text {
   width: 250px;
   margin-left: -125px;
   text-transform: uppercase;
   margin-bottom: 0;
-  text-align: center; 
+  text-align: center;
   color: rgba(147, 147, 147, 0.68);
   position: absolute;
   left: 50px;
@@ -209,8 +244,6 @@ body {
   letter-spacing: 20px;
   transform: rotate(-90deg);
   z-index: 10;
-
-  // glow effect on text only (no border/background)
   --vt-glow-color: cyan;
   text-shadow:
     0 0 10px var(--vt-glow-color),
@@ -224,7 +257,9 @@ body {
   }
 }
 
-//___hero-section___//
+// ============================================
+// Hero Section
+// ============================================
 .hero-section {
   background-color: #e8f9fd;
   position: relative;
@@ -239,13 +274,16 @@ body {
     color: #3e3e3ebb;
   }
 
-  .circles {  
+  // Circles
+  .circles {
     .profile-circle-1 {
       width: 600px;
       height: 600px;
       border-radius: 50%;
       border: 90px solid #57b1bf;
-      box-shadow: 0 0 80px #57b1bf ,inset 0 0 80px #57b1bf;
+      box-shadow:
+        0 0 80px #57b1bf,
+        inset 0 0 80px #57b1bf;
       position: absolute;
       top: -300px;
       left: -300px;
@@ -253,27 +291,15 @@ body {
       animation: 5s alternate infinite;
       animation-name: profile-circle-1;
     }
-  
-    .profile-circle-3 {
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      border: 50px solid #57b1bf;
-      box-shadow: 0 0 40px #57b1bf ,inset 0 0 40px #57b1bf;
-      position: absolute;
-      bottom: 20px;
-      right: 200px;
-      z-index: 1;
-      animation: 7s alternate infinite;
-      animation-name: profile-circle-3;
-    }
-  
+
     .profile-circle-2 {
       width: 250px;
       height: 250px;
       border-radius: 50%;
       border: 45px solid #57b1bf;
-      box-shadow: 0 0 40px #57b1bf ,inset 0 0 40px #57b1bf;
+      box-shadow:
+        0 0 40px #57b1bf,
+        inset 0 0 40px #57b1bf;
       position: absolute;
       bottom: 30px;
       right: 20px;
@@ -281,8 +307,25 @@ body {
       animation: 6s alternate infinite;
       animation-name: profile-circle-2;
     }
+
+    .profile-circle-3 {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      border: 50px solid #57b1bf;
+      box-shadow:
+        0 0 40px #57b1bf,
+        inset 0 0 40px #57b1bf;
+      position: absolute;
+      bottom: 20px;
+      right: 200px;
+      z-index: 1;
+      animation: 7s alternate infinite;
+      animation-name: profile-circle-3;
+    }
   }
 
+  // Content Block
   .content-block {
     .profile-img {
       width: 80%;
@@ -293,15 +336,14 @@ body {
       cursor: pointer;
       animation-name: profile-img;
     }
-  
+
     .profile-click {
       transform: rotateY(360deg);
     }
   }
 
+  // Dark Mode
   &.dark-mode {
-    // background-color: #424242;
-
     .text {
       color: rgb(220, 219, 219);
       transition: 5s;
@@ -331,7 +373,9 @@ body {
   }
 }
 
-//___About-section___//
+// ============================================
+// About Section
+// ============================================
 .about-section {
   background-color: #57b1bf;
   transition: 0.4s;
@@ -340,6 +384,7 @@ body {
     overflow-x: hidden;
   }
 
+  // Circles
   .circles {
     .about-circle-1 {
       width: 600px;
@@ -348,36 +393,44 @@ body {
       top: 50%;
       transform: translateY(-50%);
       border: 90px solid #e8f9fd;
-      box-shadow: 0 0 80px #e8f9fd ,inset 0 0 80px #e8f9fd;
+      box-shadow:
+        0 0 80px #e8f9fd,
+        inset 0 0 80px #e8f9fd;
       position: absolute;
       left: -300px;
       transition: 0.4s;
       animation: 5s alternate infinite;
     }
+
     .about-circle-2 {
       width: 150px;
       height: 150px;
       border-radius: 50%;
       border: 33px solid #e8f9fd;
-      box-shadow: 0 0 80px #e8f9fd,inset 0 0 80px #e8f9fd;
+      box-shadow:
+        0 0 80px #e8f9fd,
+        inset 0 0 80px #e8f9fd;
       position: absolute;
       bottom: 20px;
       transition: 0.4s;
       animation: 5s alternate infinite;
       animation-name: about-circle-2;
     }
+
     .about-circle-3-container {
       width: 450px;
       height: 450px;
       right: 0;
       top: 0;
-    
+
       .about-circle-3 {
         width: 600px;
         height: 600px;
         border-radius: 50%;
         border: 90px solid #e8f9fd;
-        box-shadow: 0 0 80px #e8f9fd ,inset 0 0 80px #e8f9fd;
+        box-shadow:
+          0 0 80px #e8f9fd,
+          inset 0 0 80px #e8f9fd;
         position: absolute;
         bottom: 80px;
         right: -250px;
@@ -387,9 +440,9 @@ body {
     }
   }
 
+  // Content Block
   .content-block {
-   
-    .atropos-el{
+    .atropos-el {
       background-color: #57b1bf;
       height: 400px;
       display: flex;
@@ -398,16 +451,15 @@ body {
       border-radius: 30px;
       transition: 0.4s;
 
-  
-      .age{
+      .age {
         text-align: center;
         vertical-align: middle;
         font-size: 200px;
         font-weight: bold;
         margin: 0 auto;
       }
-  
-      .year-old{
+
+      .year-old {
         position: absolute;
         font-size: 16px;
         font-weight: bold;
@@ -416,14 +468,14 @@ body {
         top: 35px;
       }
     }
-  
+
     .about-icon-gp {
       i {
         font-size: 43px;
         margin-right: 5px;
         text-align: center;
         margin-top: 12px;
-  
+
         &:last-child {
           margin-right: 0;
         }
@@ -431,34 +483,44 @@ body {
     }
   }
 
+  // Dark Mode
   &.dark-mode {
-  background-color: #448994;
+    background-color: #448994;
 
     .circles {
       .about-circle-1 {
         border: 90px solid #424242;
-        box-shadow: 0 0 80px #424242 ,inset 0 0 80px #424242;
+        box-shadow:
+          0 0 80px #424242,
+          inset 0 0 80px #424242;
       }
+
       .about-circle-2 {
         border: 33px solid #424242;
-        box-shadow: 0 0 80px #424242,inset 0 0 80px #424242;
+        box-shadow:
+          0 0 80px #424242,
+          inset 0 0 80px #424242;
       }
+
       .about-circle-3 {
         border: 90px solid #424242;
-        box-shadow: 0 0 80px #424242 ,inset 0 0 80px #424242;
-      
+        box-shadow:
+          0 0 80px #424242,
+          inset 0 0 80px #424242;
       }
     }
 
     .content-block {
-      .atropos-el{
+      .atropos-el {
         background-color: #448994;
       }
     }
   }
 }
 
-//___Third-section__//
+// ============================================
+// Third Section (Horizontal Scroll Projects)
+// ============================================
 .third-section {
   overflow-x: hidden;
   position: relative;
@@ -466,7 +528,7 @@ body {
   .third-section-container {
     width: 400vw;
     background-color: #313131;
-    
+
     .gsap-Hscroll-section {
       width: 100vw;
       height: 100vh;
@@ -481,7 +543,7 @@ body {
         right: -100px;
         bottom: 50%;
         z-index: 50;
-    
+
         .scroll-right-line {
           position: relative;
           width: 200px;
@@ -490,7 +552,7 @@ body {
           content: "";
           z-index: 50;
           overflow: hidden;
-  
+
           &:before {
             position: absolute;
             content: "";
@@ -498,17 +560,6 @@ body {
             height: 2px;
             background-color: white;
             animation: scrolling-right 1.5s infinite;
-          }
-
-          @keyframes scrolling-right {
-            from {
-              left: -30px;
-              width: 30px;
-            }
-            to {
-              left: 200px;
-              width: 80px;
-            }
           }
         }
       }
@@ -524,13 +575,29 @@ body {
           font-weight: normal;
         }
       }
-      
+
       .project-showCave {
         width: 600px;
         margin-right: 40px;
         box-shadow: 5px 5px 40px 12px #313131;
-        border-radius: 30px;
-        overflow: hidden;
+
+		img {
+			border-radius: 30px;
+			margin-bottom: 10px;
+		}
+
+		.project-content {
+			h2,p,.my-btn {
+				color: #FFF;
+			}
+
+			.my-btn {
+				border-color: white;
+				color: white;
+				padding: 6px 23px;
+				font-weight: normal;
+			}
+		}
       }
 
       &.block-1 {
@@ -538,21 +605,23 @@ body {
         justify-content: center;
         align-items: center;
 
-       .circles {
-        .thr-section-b1-circle1 {
-          width: 600px;
-          height: 600px;
-          border-radius: 50%;
-          top: 50%;
-          transform: translateY(-50%);
-          border: 90px solid #e8f9fd;
-          box-shadow: 0 0 80px #e8f9fd ,inset 0 0 80px #e8f9fd;
-          position: absolute;
-          left: -300px;
-          transition: 0.4s;
-          animation: 5s alternate infinite;
+        .circles {
+          .thr-section-b1-circle1 {
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 90px solid #e8f9fd;
+            box-shadow:
+              0 0 80px #e8f9fd,
+              inset 0 0 80px #e8f9fd;
+            position: absolute;
+            left: -300px;
+            transition: 0.4s;
+            animation: 5s alternate infinite;
+          }
         }
-       }
       }
     }
   }
@@ -561,105 +630,204 @@ body {
     .circles {
       .thr-section-b1-circle1 {
         border: 90px solid #448994 !important;
-        box-shadow: 0 0 80px #448994 ,inset 0 0 80px #448994 !important;
+        box-shadow:
+          0 0 80px #448994,
+          inset 0 0 80px #448994 !important;
       }
     }
   }
 }
 
-
-//___Fourth-section & Fifth-section___//
+// ============================================
+// Shared: Upper Layer
+// ============================================
 .upper-layer {
   background-color: rgba(52, 52, 52, 0.53);
   backdrop-filter: blur(20);
 }
 
-//___Fourth-section___//
+// ============================================
+// Fourth Section (Services)
+// ============================================
 .fourth-section {
-  backdrop-filter: blur(20);
-  background: url(./img/section-4-Bg.png) no-repeat center center/cover;
+  // background-color: #313131;
+  position: relative;
 
-  .circles {
-    .fourth-section-circle {
-      width: 550px;
-      height: 550px;
-      border-radius: 50%;
-      border: 70px solid #dce4e7;
-      box-shadow: 0 0 85px #e8f9fd ,inset 0 0 85px #e8f9fd;
-      position: absolute;
-      z-index: 1;
-      transition: 0.4s;
-      animation: 4s alternate infinite;
-      animation-name: fourth-circle;
-    }
+  &::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 220px;
+    // border-radius: 0 0 70px 70px;
+    background-color: #58b1bf;
+    z-index: 1;
+
   }
 
-  .content-block {
+  .service {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background-color: #e8f9fd;
+    transition: 0.4s;
 
-    .services-text {
-      color: transparent;
-      -webkit-text-stroke-width: 3px;
-      -webkit-text-stroke-color: cyan;
-    }
+    .inner {
+      max-width: 1100px;
+      position: relative;
+      margin: 0 auto;
 
-    .card-container {
-      &:hover {
-        .card {
-          margin-top: -15px;
+      h2 {
+        position: relative;
+        z-index: 2;
+        padding: 85px;
+        margin-bottom: 20px;
+        font-size: 60px;
+        text-align: center;
+        color: white;
+      }
+
+      .wave-wrap {
+        position: absolute;
+        left: 50%;
+        bottom: 85px;
+        width: 100vw;
+        height: 320px;
+        transform: translateX(-50%) rotate(180deg);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .waves {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      .moving-waves use {
+          animation: wave-move 20s linear infinite;
+      }
+
+      .moving-waves use:nth-child(1) {
+          animation-duration: 25s;
+      }
+
+      .moving-waves use:nth-child(2) {
+          animation-duration: 20s;
+          animation-delay: -3s;
+      }
+
+      .moving-waves use:nth-child(3) {
+          animation-duration: 18s;
+          animation-delay: -5s;
+      }
+
+      .moving-waves use:nth-child(4) {
+          animation-duration: 15s;
+          animation-delay: -7s;
+      }
+
+      .moving-waves use:nth-child(5) {
+          animation-duration: 12s;
+          animation-delay: -9s;
+      }
+
+      .moving-waves use:nth-child(6) {
+          animation-duration: 10s;
+          animation-delay: -11s;
+      } 
+
+      @keyframes wave-move {
+        0% {
+            transform: translate3d(-90px, 0, 0);
+        }
+
+        100% {
+            transform: translate3d(85px, 0, 0);
         }
       }
 
-      .section-4-cardBG {
-        background-color: rgba(255, 255, 255, 0.38);
-        backdrop-filter: blur(20px);
-        transition: 0.3s;
+      .cardList {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        z-index: 1;
 
-        i {
-          font-size: 40px;
+        .cu_card {
+          width: 330px;
+
+          figure {
+            width: 100%;
+            height: 200px;
+            border-radius: 30px;
+            margin-bottom: 0;
+            overflow: hidden;
+
+            img {
+              width: 100%;
+              height: auto;
+            }
+          }
+
+          .textCol {
+            padding: 0 28px;
+
+            .ttl {
+              margin: 15px 0 10px;
+              font-size: 26px;
+              font-weight: bolder;
+              text-align: center;
+            }
+
+            .text {
+              font-size: 16px;
+              line-height: 1.7;
+              text-align: center;
+            }
+          }
         }
       }
     }
   }
 
+  &.dark-mode {
+    .service {
+      background-color: #424242;
+    }
+  }
 }
 
-//section-5
-// .five-section {
-//   backdrop-filter: blur(20);
-//   // background-image: url("./img/section-5-mobileBG-1.png");
-//   background-repeat: no-repeat;
-//   background-attachment: fixed;
-//   background-size: 100% 100%;
-// }
-
-.five-section-text{
+// ============================================
+// Fifth Section (Contact)
+// ============================================
+.five-section-text {
   color: transparent;
   -webkit-text-stroke-width: 3px;
   -webkit-text-stroke-color: cyan;
 }
 
-.inp-BG{
+.inp-BG {
   background-color: rgba(255, 255, 255, 0.38);
   backdrop-filter: blur(20px);
+
+  &::placeholder {
+    color: cyan;
+  }
 }
 
-.inp-BG::placeholder {
-  color: cyan;
-}
-
-// Reserved left column space for contact section
 .contact-left-space {
   width: 100%;
   min-height: 320px;
 }
 
-// Contact form (section 5)
 .contact-form-card {
   width: 100%;
   max-width: none;
   padding: 18px 18px 20px;
   border-radius: 22px;
-  background-color: rgba(255, 255, 255, 0.10);
+  background-color: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(18px);
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
@@ -667,7 +835,10 @@ body {
   .form-control {
     border: 1px solid rgba(255, 255, 255, 0.18);
     color: rgba(255, 255, 255, 0.88);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+    color: #000;
 
     &:focus {
       border-color: rgba(0, 255, 255, 0.65);
@@ -717,63 +888,68 @@ body {
     }
   }
 }
-//loder
-.Bg-dark{
+
+// ============================================
+// Loader
+// ============================================
+.Bg-dark {
   background-color: #2b2b2b;
   position: fixed;
   width: 100%;
 }
-.H-Container{
+
+.H-Container {
   width: 300px;
   height: 300px;
-}
-.Left-H{
-  width: 15px;
-  height: 120px;
-  background-color: cyan;
-  position: absolute;
-  top: 89px;
-  left: 105px;
-  animation-name: Left-H-animation;
-  animation-duration: 2.3s;
-}
-.Center-H{
-  width: 85px;
-  height: 16px;
-  background-color: cyan;
-  position: absolute;
-  top: 48%;
-  right: 108px;
-  animation-name: Center-H-animation;
-  animation-duration: 2s;
 
-}
-.Right-H{
-  width: 15px;
-  height: 120px;
-  background-color: cyan;
-  position: absolute;
-  top: 89px;
-  right: 105px;
-  animation-name: Right-H-animation;
-  animation-duration: 2s;
+  .Left-H {
+    width: 15px;
+    height: 120px;
+    background-color: cyan;
+    position: absolute;
+    top: 89px;
+    left: 105px;
+    animation-name: Left-H-animation;
+    animation-duration: 2.3s;
+  }
 
-}
-.Border-circle{
-  width: 220px;
-  height: 220px;
-  border: 14px solid cyan;
-  border-radius: 50%;
-  margin: auto;
-  box-shadow: 0 0 50px cyan;
-  animation-name: Border-H-animation;
-  animation-duration: 4.2s;
+  .Center-H {
+    width: 85px;
+    height: 16px;
+    background-color: cyan;
+    position: absolute;
+    top: 48%;
+    right: 108px;
+    animation-name: Center-H-animation;
+    animation-duration: 2s;
+  }
 
+  .Right-H {
+    width: 15px;
+    height: 120px;
+    background-color: cyan;
+    position: absolute;
+    top: 89px;
+    right: 105px;
+    animation-name: Right-H-animation;
+    animation-duration: 2s;
+  }
+
+  .Border-circle {
+    width: 220px;
+    height: 220px;
+    border: 14px solid cyan;
+    border-radius: 50%;
+    margin: auto;
+    box-shadow: 0 0 50px cyan;
+    animation-name: Border-H-animation;
+    animation-duration: 4.2s;
+  }
 }
-.Loader-page-1{
+
+.Loader-page-1 {
   position: fixed;
   animation-name: loader-page;
-  /*transition: 0.5s;*/
   animation-delay: 2.5s;
   animation-duration: 1.5s;
   z-index: 10040;
@@ -783,302 +959,118 @@ body {
   }
 }
 
-@keyframes Left-H-animation {
-  to{
-    opacity: 1;
-    left: 105px;
-  }
-  from{
-    opacity: 0;
-    left: -1px;
-  }
-}
-@keyframes Center-H-animation {
-  to{
-    opacity: 1;
-    top: 48%;
-  }
-  from{
-    opacity: 0;
-    top: -1px;
-  }
-}
-@keyframes Right-H-animation {
-  to{
-    opacity: 1;
-    right: 105px;
-
-  }
-  from{
-    opacity: 0;
-    right: -1px;
-
-  }
-}
-@keyframes loader-page {
-  to{
-    top: -1200px;
-  }
-  from{
-    top: 0;
-  }
-}
-@keyframes Border-H-animation {
-  0%{
-    opacity: 0;
-  }
-  40%{
-    opacity: 0;
-  }
-  100%{
-    opacity: 1;
-  }
-
-}
-@keyframes profile-circle-1 {
-  to{
-    top: -400px;
-    right: -200px;
-  }
-  from{
-    top: -300px;
-    right: -150px;
-  }
-}
-@keyframes profile-circle-2{
-  to{
-    bottom: 30px;
-    right: 20px;
-  }
-  from{
-    bottom: 220px;
-    right: 20px;
-  }
-}
-@keyframes profile-circle-3{
-  to{
-    bottom: 170px;
-    left: 560px;
-  }
-  from{
-    bottom: 20px;
-    left: 400px;
-  }
-}
-@keyframes profile-img {
-  to{
-    box-shadow: 0 0 75px cyan;
-  }
-  from{
-    box-shadow: 0 0 15px cyan;
-  }
-}
-@keyframes about-circle-2 {
-  to{
-    right: 500px;
-  }
-  from{
-    right: 300px;
-  }
-}
-
-//media
-
-.visible-icon-color{
+// ============================================
+// Mobile Social Icons
+// ============================================
+.visible-icon-color {
   color: #424242;
   line-height: 60px;
 }
-.visible-icon-rotate-animation{
+
+.visible-icon-rotate-animation {
   animation-name: visible-icon-rotate;
   animation-duration: 0.7s;
   transform: rotateZ(-40deg);
 }
-.visible-icon-rotate-animation-reverse{
+
+.visible-icon-rotate-animation-reverse {
   animation-name: visible-icon-rotate-reverse;
   animation-duration: 0.7s;
   transform: rotateZ(0);
 }
-@keyframes visible-icon-rotate-reverse {
-  to{
-    transform: rotateZ(0);
-  }
-  from{
-    transform: rotateZ(-40deg);
-  }
-}
-@keyframes visible-icon-rotate {
-  to{
-    transform: rotateZ(-40deg);
-  }
-  from{
-    transform: rotateZ(0);
-  }
-}
-.small-icon-container{
+
+.small-icon-container {
   position: absolute;
   bottom: 48px;
   right: 48px;
   font-size: 30px;
-}
-.small-icon-container a i{
-  color: #424242;
-  text-decoration: none;
-}
-.small-icon-container a{
-  background-color: cyan;
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+
+  a {
+    background-color: cyan;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+    i {
+      color: #424242;
+      text-decoration: none;
+    }
+  }
 }
 
-.icon-item-f{
+// Facebook Icon Animation
+.icon-item-f {
   position: absolute;
   bottom: 33px;
   right: -50px;
   animation-name: icon-f-animate;
   animation-duration: 1.3s;
 }
-.icon-item-f-reverse{
+
+.icon-item-f-reverse {
   bottom: -45px;
   right: -35px;
   animation-name: icon-f-animate-reverse;
   animation-duration: 1.3s;
 }
-@keyframes icon-f-animate-reverse {
-  to{
-    bottom: -45px;
-    right: -35px;
-  }
-  from{
-    bottom: 33px;
-    right: -50px;
-  }
-}
-@keyframes icon-f-animate {
-  to{
-    bottom: 33px;
-    right: -50px;
-  }
-  from{
-    bottom: -45px;
-    right: -35px;
-  }
-}
 
-/*instagram-icon*/
-
-.icon-item-i{
+// Instagram Icon Animation
+.icon-item-i {
   position: absolute;
   bottom: 23px;
   right: 1px;
-  animation-name: icon-i-animate ;
+  animation-name: icon-i-animate;
   animation-duration: 1.1s;
 }
-.icon-item-i-reverse{
+
+.icon-item-i-reverse {
   animation-name: icon-i-animate-reverse;
   animation-duration: 1.1s;
 }
-@keyframes icon-i-animate-reverse{
-  to{
-    bottom: -45px;
-    right: -35px;
-  }
-  from{
-    bottom: 23px;
-    right: 1px;
-  }
-}
-@keyframes icon-i-animate {
-  to{
-    bottom: 23px;
-    right: 1px;
-  }
-  from{
-    bottom: -45px;
-    right: -35px;
-  }
-}
 
-/*instagram-icon-end*/
-
-.icon-item-g{
+// GitHub Icon Animation
+.icon-item-g {
   position: absolute;
   right: 33px;
   bottom: -16px;
-  animation-name: icon-g-animate ;
+  animation-name: icon-g-animate;
   animation-duration: 0.9s;
-}
-.icon-item-g-reverse{
-  bottom: -45px;
-  right: -35px;
-  animation-name: icon-g-animate-reverse ;
-  animation-duration: 0.9s;
-}
-@keyframes icon-g-animate-reverse{
-  to{
-    bottom: -45px;
-    right: -35px;
-  }
-  from{
-    right: 33px;
-    bottom: -16px;
-  }
-}
-@keyframes icon-g-animate {
-  to{
-    right: 33px;
-    bottom: -16px;
-  }
-  from{
-    bottom: -45px;
-    right: -35px;
-  }
 }
 
-/*.............*/
-.icon-item-m{
+.icon-item-g-reverse {
+  bottom: -45px;
+  right: -35px;
+  animation-name: icon-g-animate-reverse;
+  animation-duration: 0.9s;
+}
+
+// Messenger Icon Animation
+.icon-item-m {
   position: absolute;
   right: 30px;
   bottom: -68px;
-  animation-name: icon-m-animate ;
+  animation-name: icon-m-animate;
   animation-duration: 0.7s;
-}
-.icon-item-m-reverse{
-  bottom: -45px;
-  right: -35px;
-  animation-name: icon-m-animate-reverse ;
-  animation-duration: 0.7s;
-}
-@keyframes icon-m-animate-reverse {
-  to{
-    bottom: -45px;
-    right: -35px;
-  }
-  from{
-    right: 30px;
-    bottom: -68px;
-  }
-}
-@keyframes icon-m-animate {
-  to{
-    right: 30px;
-    bottom: -68px;
-  }
-  from{
-    bottom: -45px;
-    right: -35px;
-  }
 }
 
-.icon-bg-container{
+.icon-item-m-reverse {
+  bottom: -45px;
+  right: -35px;
+  animation-name: icon-m-animate-reverse;
+  animation-duration: 0.7s;
+}
+
+.icon-bg-container {
   display: flex;
   justify-content: center;
   background-color: cyan;
-  box-shadow: 0 0 30px cyan,inset 0 0 30px cyan;
+  box-shadow:
+    0 0 30px cyan,
+    inset 0 0 30px cyan;
   width: 60px;
   height: 60px;
   font-size: 40px;
@@ -1086,9 +1078,233 @@ body {
   cursor: pointer;
 }
 
-.whole-container{
+.whole-container {
   position: absolute;
   bottom: 25px;
   right: 15px;
 }
 
+// ============================================
+// Keyframes
+// ============================================
+@keyframes Left-H-animation {
+  to {
+    opacity: 1;
+    left: 105px;
+  }
+  from {
+    opacity: 0;
+    left: -1px;
+  }
+}
+
+@keyframes Center-H-animation {
+  to {
+    opacity: 1;
+    top: 48%;
+  }
+  from {
+    opacity: 0;
+    top: -1px;
+  }
+}
+
+@keyframes Right-H-animation {
+  to {
+    opacity: 1;
+    right: 105px;
+  }
+  from {
+    opacity: 0;
+    right: -1px;
+  }
+}
+
+@keyframes loader-page {
+  to {
+    top: -1200px;
+  }
+  from {
+    top: 0;
+  }
+}
+
+@keyframes Border-H-animation {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes profile-circle-1 {
+  to {
+    top: -400px;
+    right: -200px;
+  }
+  from {
+    top: -300px;
+    right: -150px;
+  }
+}
+
+@keyframes profile-circle-2 {
+  to {
+    bottom: 30px;
+    right: 20px;
+  }
+  from {
+    bottom: 220px;
+    right: 20px;
+  }
+}
+
+@keyframes profile-circle-3 {
+  to {
+    bottom: 170px;
+    left: 560px;
+  }
+  from {
+    bottom: 20px;
+    left: 400px;
+  }
+}
+
+@keyframes profile-img {
+  to {
+    box-shadow: 0 0 75px cyan;
+  }
+  from {
+    box-shadow: 0 0 15px cyan;
+  }
+}
+
+@keyframes about-circle-2 {
+  to {
+    right: 500px;
+  }
+  from {
+    right: 300px;
+  }
+}
+
+@keyframes visible-icon-rotate-reverse {
+  to {
+    transform: rotateZ(0);
+  }
+  from {
+    transform: rotateZ(-40deg);
+  }
+}
+
+@keyframes visible-icon-rotate {
+  to {
+    transform: rotateZ(-40deg);
+  }
+  from {
+    transform: rotateZ(0);
+  }
+}
+
+@keyframes icon-f-animate-reverse {
+  to {
+    bottom: -45px;
+    right: -35px;
+  }
+  from {
+    bottom: 33px;
+    right: -50px;
+  }
+}
+
+@keyframes icon-f-animate {
+  to {
+    bottom: 33px;
+    right: -50px;
+  }
+  from {
+    bottom: -45px;
+    right: -35px;
+  }
+}
+
+@keyframes icon-i-animate-reverse {
+  to {
+    bottom: -45px;
+    right: -35px;
+  }
+  from {
+    bottom: 23px;
+    right: 1px;
+  }
+}
+
+@keyframes icon-i-animate {
+  to {
+    bottom: 23px;
+    right: 1px;
+  }
+  from {
+    bottom: -45px;
+    right: -35px;
+  }
+}
+
+@keyframes icon-g-animate-reverse {
+  to {
+    bottom: -45px;
+    right: -35px;
+  }
+  from {
+    right: 33px;
+    bottom: -16px;
+  }
+}
+
+@keyframes icon-g-animate {
+  to {
+    right: 33px;
+    bottom: -16px;
+  }
+  from {
+    bottom: -45px;
+    right: -35px;
+  }
+}
+
+@keyframes icon-m-animate-reverse {
+  to {
+    bottom: -45px;
+    right: -35px;
+  }
+  from {
+    right: 30px;
+    bottom: -68px;
+  }
+}
+
+@keyframes icon-m-animate {
+  to {
+    right: 30px;
+    bottom: -68px;
+  }
+  from {
+    bottom: -45px;
+    right: -35px;
+  }
+}
+
+@keyframes scrolling-right {
+  from {
+    left: -30px;
+    width: 30px;
+  }
+  to {
+    left: 200px;
+    width: 80px;
+  }
+}
