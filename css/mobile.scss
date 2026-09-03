@@ -66,6 +66,31 @@
     }
 
     // ==========================================
+    // SKILL SECTION
+    // ==========================================
+    .skill-section {
+        .skill-intro {
+            margin-bottom: 24px;
+
+            .ttl {
+                font-size: 28px;
+            }
+        }
+
+        .skill-grid {
+            grid-template-columns: 1fr;
+            gap: 14px;
+        }
+
+        .circles {
+            .skill-circle-2,
+            .skill-circle-3 {
+                display: none;
+            }
+        }
+    }
+
+    // ==========================================
     // THIRD SECTION
     // ==========================================
     .third-section {
@@ -97,4 +122,39 @@
     // .fourth-section {
     //     // Add your styles here
     // }
+
+    // ==========================================
+    // FIFTH SECTION (CONTACT)
+    // ==========================================
+    .fifth-section {
+        overflow: auto;
+
+        .contact-inner {
+            min-height: auto;
+            padding: 72px 20px 40px;
+            grid-template-columns: 1fr;
+            gap: 28px;
+        }
+
+        .contact-copy {
+            .ttl {
+                font-size: 36px;
+                -webkit-text-stroke-width: 1.5px;
+            }
+        }
+
+        .contact-form-card {
+            padding: 20px;
+        }
+
+        .contact-fields {
+            grid-template-columns: 1fr;
+        }
+
+        .circles {
+            .contact-circle-2 {
+                display: none;
+            }
+        }
+    }
 }

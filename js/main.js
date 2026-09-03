@@ -27,6 +27,7 @@ $(document).ready(function() {
     initializeHorizontalScroll();
     initializeScrollSnap();
     initializeScrollSnapV2();
+    initializeSkillBars();
     initializeAtropos();
     initializeTyped();
     initializeProfileClick();
@@ -70,8 +71,10 @@ function toggleDarkModeSections() {
     const sections = [
         '.hero-section',
         '.about-section',
+        '.skill-section',
         '.third-section',
-        '.fourth-section'
+        '.fourth-section',
+        '.fifth-section'
     ];
     
     sections.forEach(selector => {
@@ -83,7 +86,7 @@ function toggleDarkModeSections() {
 // AGE DISPLAY
 // ============================================
 function initializeAgeDisplay() {
-    const startYear = 2019;
+    const startYear = 2023;
     const currentYear = new Date().getFullYear();
     $('#age').text(currentYear - startYear);
 }
@@ -125,6 +128,29 @@ function initializeScrollSnap() {
     });
 }
 
+function initializeSkillBars() {
+    const fills = gsap.utils.toArray('.skill-bar-fill');
+
+    fills.forEach((fill) => {
+        const level = Number(fill.dataset.level) || 0;
+
+        gsap.fromTo(
+            fill,
+            { width: '0%' },
+            {
+                width: `${level}%`,
+                duration: 1.1,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: fill,
+                    start: 'top 85%',
+                    toggleActions: 'play none none reverse',
+                },
+            }
+        );
+    });
+}
+
 function initializeScrollSnapV2() {
     const scrollSnapV2Sections = gsap.utils.toArray('.sectionV2');
     
@@ -154,7 +180,7 @@ function initializeAtropos() {
 // ============================================
 function initializeTyped() {
     new Typed('#TypeJs', {
-        strings: ['Hein Pyae Sone', 'Web Developer', 'Frontend Developer'],
+        strings: ['Hein Pyae Sone', 'Frontend Developer'],
         typeSpeed: 100,
         backSpeed: 50,
         startDelay: 300,
