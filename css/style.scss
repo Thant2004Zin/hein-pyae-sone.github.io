@@ -393,11 +393,10 @@ body {
   &.dark-mode {
     background-color: #1c2a2d;
 
-
     .two-col {
       .text-col {
         .ttl {
-              color: rgb(220, 219, 219);
+          color: rgb(220, 219, 219);
           transition: 0.4s;
         }
 
@@ -485,6 +484,7 @@ body {
       height: 450px;
       right: 0;
       top: 0;
+      overflow: hidden;
 
       .about-circle-3 {
         width: 600px;
@@ -619,6 +619,7 @@ body {
 .skill-section {
   background-color: #e8f9fd;
   transition: 0.4s;
+  overflow: hidden;
 
   .vertical-text {
     color: #57b1bf;
@@ -769,7 +770,20 @@ body {
   }
 
   &.dark-mode {
-    background-color: #424242;
+    background-color: #141414;
+
+    .darkTheme {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        115deg,
+        rgba(16, 28, 32, 0.78) 0%,
+        rgba(23, 48, 54, 0.55) 48%,
+        rgba(16, 28, 32, 0.72) 100%
+      );
+      backdrop-filter: blur(4px);
+    }
 
     .circles {
       .skill-circle-1,

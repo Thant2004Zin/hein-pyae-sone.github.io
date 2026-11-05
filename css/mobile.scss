@@ -11,6 +11,7 @@
     // ==========================================
     .section {
         overflow: scroll;
+        height: auto;
     }
 
     // ============================================
@@ -39,28 +40,47 @@
                 box-shadow: 0 0 80px #57b1bf,inset 0 0 80px #57b1bf;
             }
         }
+
+        .ct-inner {
+            padding: 50px 20px;
+
+            .two-col {
+                flex-direction: column;
+
+                .img-col {
+                    width: 100%;
+                }
+
+                .text-col {
+                    width: 100%;
+                }
+            }
+        }
     }
 
     // ==========================================
     // ABOUT SECTION
     // ==========================================
     .about-section {
-        .content-block {
-            .atropos-el {
-                height: 300px;
-                border-radius: 30px;
-                transition: 0.4s;
-                
-                .age {
-                    font-size: 100px;
+        .ct-inner {
+            padding: 50px 20px;
+        }
+
+        .two-col {
+            flex-direction: column;
+            width: 100%;
+
+            .left-col {
+                width: 100%;
+
+                .my-atropos {
+                    width: 100%;
+                    margin-bottom: 30px;
                 }
-                
-                .year-old {
-                    font-size: 16px;
-                    margin: 0;
-                    right: 0px;
-                    top: 35px;
-                }
+            }
+
+            .right-col {
+                width: 100%;
             }
         }
     }
@@ -119,9 +139,23 @@
     // ==========================================
     // FOURTH SECTION (Optional - Add if needed)
     // ==========================================
-    // .fourth-section {
-    //     // Add your styles here
-    // }
+    .fourth-section {
+        .service {
+            height: auto;
+
+            .inner {
+                h2 {
+                    text-align: center;
+                    width: 100%;
+                }
+
+                .cardList {
+                    flex-direction: column;
+                    align-items: center;
+                }
+            }
+        }
+    }
 
     // ==========================================
     // FIFTH SECTION (CONTACT)
