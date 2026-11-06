@@ -137,23 +137,52 @@
     }
 
     // ==========================================
-    // FOURTH SECTION (Optional - Add if needed)
+    // FOURTH SECTION (SERVICES)
     // ==========================================
     .fourth-section {
-        .service {
-            height: auto;
+        height: 100vh;
+        max-height: 100vh;
 
-            .inner {
-                h2 {
-                    text-align: center;
-                    width: 100%;
-                }
+        .service-inner {
+            height: 100%;
+            padding: 72px 16px 16px;
+        }
 
-                .cardList {
-                    flex-direction: column;
-                    align-items: center;
-                }
-            }
+        .service-head {
+            margin-bottom: 12px;
+        }
+
+        .service-head h2 {
+            font-size: 28px;
+        }
+
+        .service-lead {
+            display: none;
+        }
+
+        .service-bento {
+            grid-template-columns: 1fr;
+            grid-template-rows: 1.3fr 1fr 1fr;
+            gap: 10px;
+        }
+
+        .service-card,
+        .service-card-lg {
+            min-height: 0;
+            grid-row: auto;
+        }
+
+        .service-card-lg .service-card-content h3,
+        .service-card-content h3 {
+            font-size: 18px;
+        }
+
+        .service-card-content p {
+            -webkit-line-clamp: 2;
+        }
+
+        .wave-wrap {
+            height: 64px;
         }
     }
 

@@ -362,59 +362,77 @@
   </section>
 
   <section class="sectionV2 fourth-section" id="section4">
+    <div class="wave-wrap" aria-hidden="true">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z"></path>
+        </defs>
+        <g class="moving-waves">
+          <use href="#gentle-wave" x="48" y="-1" fill="rgba(0, 255, 255, 0.18)"></use>
+          <use href="#gentle-wave" x="48" y="3" fill="rgba(87, 177, 191, 0.22)"></use>
+          <use href="#gentle-wave" x="48" y="5" fill="rgba(87, 177, 191, 0.28)"></use>
+          <use href="#gentle-wave" x="48" y="8" fill="rgba(49, 49, 49, 0.35)"></use>
+          <use href="#gentle-wave" x="48" y="13" fill="rgba(49, 49, 49, 0.55)"></use>
+          <use href="#gentle-wave" x="48" y="16" fill="#313131"></use>
+        </g>
+      </svg>
+    </div>
 
-    <div class="service">
-      <div class="inner">
-          <h2>Professional</h2>
+    <div class="service-bg" aria-hidden="true">
+      <span class="service-orb service-orb-1"></span>
+      <span class="service-orb service-orb-2"></span>
+      <span class="service-orb service-orb-3"></span>
+      <span class="service-mesh"></span>
+    </div>
 
-          <div class="wave-wrap">
-            <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
-              <defs>
-                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z"></path>
-              </defs>
-              <g class="moving-waves">
-                <use href="#gentle-wave" x="48" y="-1" fill="rgba(88, 177, 191, 0.40)"></use>
-                <use href="#gentle-wave" x="48" y="3" fill="rgba(88, 177, 191, 0.35)"></use>
-                <use href="#gentle-wave" x="48" y="5" fill="rgba(88, 177, 191, 0.25)"></use>
-                <use href="#gentle-wave" x="48" y="8" fill="rgba(88, 177, 191, 0.20)"></use>
-                <use href="#gentle-wave" x="48" y="13" fill="rgba(88, 177, 191, 0.15)"></use>
-                <use href="#gentle-wave" x="48" y="16" fill="#58b1bf"></use>
-              </g>
-            </svg>
+    <div class="service-inner">
+      <div class="service-head">
+        <p class="service-kicker">Services / 2026</p>
+        <h2>
+          Professional
+          <span>frontend craft</span>
+        </h2>
+        <p class="service-lead">Interfaces with glow, motion, and structure — built to feel current, not just tidy.</p>
+      </div>
+
+      <div class="service-bento">
+        <div class="service-card service-card-lg">
+          <img src="./img/service_img1.jpg" alt="Modern interface design" width="660" height="400">
+          <div class="service-card-content">
+            <div class="service-card-top">
+              <span class="service-chip"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i> Design</span>
+              <span class="service-index">01</span>
+            </div>
+            <h3>Modern Design</h3>
+            <p>Clear hierarchy, cinematic contrast, and a visual system that feels current without getting in the way of the content.</p>
           </div>
+        </div>
 
-          <div class="cardList">
-            <div class="cu_card">
-              <figure class="shadow">
-                <img src="./img/service_img1.jpg" alt="" width="660" height="400">
-              </figure>
-              <div class="textCol">
-                <p class="ttl">Modern Design</p>
-                <p class="text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos, ex. adipisicing elit. Eos, ex.</p>
-              </div>
+        <div class="service-card">
+          <img src="./img/service_img2.jpg" alt="Responsive website layout" width="660" height="400">
+          <div class="service-card-content">
+            <div class="service-card-top">
+              <span class="service-chip"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i> Layout</span>
+              <span class="service-index">02</span>
             </div>
-            <div class="cu_card">
-              <figure class="shadow">
-                <img src="./img/service_img2.jpg" alt="" width="660" height="400">
-              </figure>
-              <div class="textCol">
-                <p class="ttl">Responsive</p>
-                <p class="text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos, ex. adipisicing elit. Eos, ex.</p>
-              </div>
-            </div>
-            <div class="cu_card">
-              <figure class="shadow">
-                <img src="./img/service_img3.jpg" alt="" width="660" height="400">
-              </figure>
-              <div class="textCol">
-                <p class="ttl">User Friendly</p>
-                <p class="text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos, ex. adipisicing elit. Eos, ex.</p>
-              </div>
-            </div>
+            <h3>Responsive</h3>
+            <p>Layouts that hold up from phone to desktop — readable type, usable tap targets, and no broken sections in between.</p>
           </div>
+        </div>
+
+        <div class="service-card">
+          <img src="./img/service_img3.jpg" alt="User-friendly web experience" width="660" height="400">
+          <div class="service-card-content">
+            <div class="service-card-top">
+              <span class="service-chip"><i class="fa-solid fa-hand-pointer" aria-hidden="true"></i> UX</span>
+              <span class="service-index">03</span>
+            </div>
+            <h3>User Friendly</h3>
+            <p>Straightforward flows, obvious actions, and motion that supports the experience instead of competing with it.</p>
+          </div>
+        </div>
       </div>
     </div>
-    
   </section>
 
   <section class="sectionV2 fifth-section" id="contactMe">
